@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C-paint</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <section class="container color-palette">
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+        <div class="box color"></div>
+      </section>
+      <div class="color-picker">
+        <input type="color" />
+        <h3>color picker</h3>
+      </div>
+
+      <section class="container shape-palette">
+        <div class="box shape" data-shape="rectangle">rect</div>
+        <div class="box shape" data-shape="circle">circle</div>
+        <div class="box shape" data-shape="triangle">triangle</div>
+        <div class="box shape" data-shape=""></div>
+        <div class="box shape" data-shape=""></div>
+        <div class="box shape" data-shape=""></div>
+        <div class="box shape" data-shape=""></div>
+        <div class="box shape" data-shape=""></div>
+        <div class="box shape" data-shape=""></div>
+        <div class="box shape" data-shape=""></div>
+      </section>
+
+      <section class="freehand shape" data-shape="freehand">freehand</section>
+
+      <section class="tools">
+        <div class="border tool" data-tool="eraser">eraser</div>
+        <div class="border tool"></div>
+        <div class="border tool"></div>
+        <div class="border tool"></div>
+        <div class="border tool"></div>
+        <div class="border tool"></div>
+      </section>
+    </header>
+
+    <canvas width="1775" height="600"></canvas>
+    <button id="clearCanvas">Clear Canvas</button>
+    <button id="downloadCanvas">Download</button>
+  </body>
+</html>
