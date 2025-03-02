@@ -63,6 +63,10 @@ canvas {
   border-radius: 4px;
   width: 4%;
   border: 1px solid black;
+  background-image: url("./assets/pen.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 20% 50%;
 }
 
 .tools {
@@ -101,4 +105,23 @@ canvas {
 
 .color-picker h3 {
   margin: 0;
+}
+.btn {
+  text-align: center;
+}
+.btn button {
+  cursor: pointer;
+}
+
+.tools .tool {
+  cursor: pointer;
+}
+
+.eraser {
+  background-image: url("./assets/eraser.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.shape svg {
+  pointer-events: none;
 }

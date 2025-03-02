@@ -27,9 +27,32 @@
       </div>
 
       <section class="container shape-palette">
-        <div class="box shape" data-shape="rectangle">rect</div>
-        <div class="box shape" data-shape="circle">circle</div>
-        <div class="box shape" data-shape="triangle">triangle</div>
+        <div class="box shape" data-shape="rectangle">
+          <svg width="60" height="40" viewBox="0 0 24 24">
+            <rect
+              x="0"
+              y="2"
+              width="28"
+              height="20"
+              stroke="black"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <div class="box shape" data-shape="circle">
+          <svg width="60" height="40" viewBox="0 0 24 24">
+            <circle cx="13" cy="12" r="10" stroke="black" stroke-width="2" />
+          </svg>
+        </div>
+        <div class="box shape" data-shape="triangle">
+          <svg width="60" height="40" viewBox="0 0 24 24">
+            <polygon
+              points="2,22 12,2, 22,22"
+              stroke="black"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
         <div class="box shape" data-shape=""></div>
         <div class="box shape" data-shape=""></div>
         <div class="box shape" data-shape=""></div>
@@ -39,10 +62,10 @@
         <div class="box shape" data-shape=""></div>
       </section>
 
-      <section class="freehand shape" data-shape="freehand">freehand</section>
+      <section class="freehand shape" data-shape="freehand"></section>
 
       <section class="tools">
-        <div class="border tool" data-tool="eraser">eraser</div>
+        <div class="border tool eraser" data-tool="eraser"></div>
         <div class="border tool"></div>
         <div class="border tool"></div>
         <div class="border tool"></div>
@@ -52,7 +75,10 @@
     </header>
 
     <canvas width="1775" height="600"></canvas>
-    <button id="clearCanvas">Clear Canvas</button>
-    <button id="downloadCanvas">Download</button>
+
+    <div class="btn">
+      <button id="clearCanvas">Clear Canvas</button>
+      <button id="downloadCanvas">Download</button>
+    </div>
   </body>
 </html>

@@ -1,18 +1,10 @@
 class ColorPalette {
   constructor(element) {
     this.element = element;
-    this.colors = [
-      "blue",
-      "orange",
-      "red",
-      "green",
-      "grey",
-      "purple",
-      "yellow",
-      "pink",
-      "cyan",
-      "brown",
-    ];
+    this.softColors = ["#E6E6FA", "#ADD8E6", "#FFDAB9", "#98FF98", "#FFC0CB"];
+    this.hardColors = ["#DC143C", "#4169E1", "#4B0082", "#006400", "#000000"];
+    this.colors = [...this.hardColors, ...this.softColors];
+
     this.fillColors();
     this.element.addEventListener("click", (e) => this.storeColor(e));
 
@@ -85,17 +77,17 @@ class CanvasDrawer {
     this.context.fillRect(x - 30, y - 20, 60, 40);
   }
 
+  drawFreehand(startX, startY) {
+    this.context.beginPath();
+    this.context.moveTo(startX, startY);
+  }
+
   getToolProperties() {
     const tools = {
       pen: { strokeStyle: paint.currentSelection.color, lineWidth: 9 },
       eraser: { strokeStyle: "white", lineWidth: 15 },
     };
     return tools[paint.currentSelection.tool];
-  }
-
-  drawFreehand(startX, startY) {
-    this.context.beginPath();
-    this.context.moveTo(startX, startY);
   }
 
   drawShape(x, y) {
@@ -168,9 +160,13 @@ class ToolPalette {
   storeTool(event) {
     if (event.target.classList.contains("tool")) {
       paint.currentSelection.tool = event.target.dataset.tool;
+      paint.currentSelection.recentTool = paint.currentSelection.tool;
+      paint.currentSelection.recentColor = paint.currentSelection.color;
+      console.log("selected tool ", paint.currentSelection.tool);
       const props = {
         eraser: this.eraser,
       };
+
       const { color } = props[paint.currentSelection.tool]();
       paint.currentSelection.color = color;
     }
@@ -182,7 +178,13 @@ class ToolPalette {
 }
 
 class paint {
-  static currentSelection = { shape: "freehand", color: "black", tool: "pen" };
+  static currentSelection = {
+    shape: "freehand",
+    color: "black",
+    recentTool: "pen",
+    tool: "pen",
+    recentColor: "black",
+  };
 
   static init() {
     const colorPaletteElement = document.querySelector(".color-palette");
